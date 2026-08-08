@@ -1,0 +1,11 @@
+/* Copyright 2026 上海如静知华信息科技有限公司 */
+package cn.zhuatech.researchagent.config;
+import cn.zhuatech.researchagent.model.*; import cn.zhuatech.researchagent.repository.*; import org.springframework.boot.CommandLineRunner; import org.springframework.context.annotation.*; import org.springframework.security.crypto.password.PasswordEncoder; import java.time.LocalDate; import java.util.List;
+@Configuration public class DataInitializer {
+ @Bean CommandLineRunner seed(OperatingUnitRepository units,WorkRecordRepository records,ResourceRegisterRepository resources,ReviewRecordRepository reviews,UserRepository users,PasswordEncoder encoder){return args->{if(units.count()>0)return;
+  OperatingUnit first=units.save(new OperatingUnit("RES-IND","行业研究组","战略研究中心",1200)),second=units.save(new OperatingUnit("RES-MKT","市场情报组","市场中心",1600)),third=units.save(new OperatingUnit("RES-METHOD","研究方法组","战略研究中心",800));
+  WorkRecord a=records.save(new WorkRecord("RES-260808-018","TOPIC-AGENT","企业 Agent 平台市场格局",first,24,15,2,LocalDate.now().plusDays(2),WorkRecord.Status.RELEASED,"METHOD-V4")); WorkRecord b=records.save(new WorkRecord("RES-260808-012","TOPIC-SME-AI","中小企业 AI 转型需求",second,18,18,0,LocalDate.now(),WorkRecord.Status.COMPLETED,"METHOD-V5")); WorkRecord c=records.save(new WorkRecord("RES-260808-021","TOPIC-OPC","工业 OPC 技术服务趋势",third,20,9,3,LocalDate.now().plusDays(3),WorkRecord.Status.RUNNING,"METHOD-V3"));
+  resources.saveAll(List.of(new ResourceRegister("RES-SOURCE-01","一级来源目录",third,ResourceRegister.Status.RUNNING,96),new ResourceRegister("RES-SEARCH-02","多源检索与去重服务",first,ResourceRegister.Status.RUNNING,93),new ResourceRegister("RES-CITE-03","引用与预测审查器",second,ResourceRegister.Status.ALARM,79)));
+  reviews.saveAll(List.of(new ReviewRecord("REV-RES-028",a,"趋势预测",22,2,ReviewRecord.Result.PENDING,"陆行"),new ReviewRecord("REV-RES-017",b,"来源可信度",30,0,ReviewRecord.Result.PASSED,"苏澄"),new ReviewRecord("REV-RES-039",c,"证据完整性",18,3,ReviewRecord.Result.FAILED,"乔青")));
+  String demo=encoder.encode("Demo@2026"); users.saveAll(List.of(new UserAccount("operator",demo,"苏澄",UserAccount.Role.DOMAIN_USER,"RES-IND"),new UserAccount("planner",demo,"陆行",UserAccount.Role.DOMAIN_OPERATOR,null),new UserAccount("quality",demo,"研究方法负责人",UserAccount.Role.QUALITY,null),new UserAccount("admin",encoder.encode("ZhuaTech@2026"),"系统管理员",UserAccount.Role.ADMIN,null)));
+ };}}
