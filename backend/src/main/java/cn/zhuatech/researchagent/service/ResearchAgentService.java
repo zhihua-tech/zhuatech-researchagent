@@ -1,4 +1,4 @@
-/* Copyright 2026 上海如静知华信息科技有限公司 */
+/* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 package cn.zhuatech.researchagent.service;
 import cn.zhuatech.researchagent.common.BusinessException; import cn.zhuatech.researchagent.dto.ResearchAgentDto.*; import cn.zhuatech.researchagent.model.*; import cn.zhuatech.researchagent.repository.*; import org.springframework.stereotype.Service; import org.springframework.transaction.annotation.Transactional; import java.util.*;
 @Service @Transactional(readOnly=true) public class ResearchAgentService {
