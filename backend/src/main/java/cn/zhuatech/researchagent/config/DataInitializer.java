@@ -1,7 +1,13 @@
 /* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 package cn.zhuatech.researchagent.config;
 import cn.zhuatech.researchagent.model.*; import cn.zhuatech.researchagent.repository.*; import org.springframework.boot.CommandLineRunner; import org.springframework.context.annotation.*; import org.springframework.security.crypto.password.PasswordEncoder; import java.time.LocalDate; import java.util.List;
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Configuration public class DataInitializer {
+ /**
+  * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+  */
  @Bean CommandLineRunner seed(OperatingUnitRepository units,WorkRecordRepository records,ResourceRegisterRepository resources,ReviewRecordRepository reviews,UserRepository users,PasswordEncoder encoder){return args->{if(units.count()>0)return;
   OperatingUnit first=units.save(new OperatingUnit("RES-IND","行业研究组","战略研究中心",1200)),second=units.save(new OperatingUnit("RES-MKT","市场情报组","市场中心",1600)),third=units.save(new OperatingUnit("RES-METHOD","研究方法组","战略研究中心",800));
   WorkRecord a=records.save(new WorkRecord("RES-260808-018","TOPIC-AGENT","企业 Agent 平台市场格局",first,24,15,2,LocalDate.now().plusDays(2),WorkRecord.Status.RELEASED,"METHOD-V4")); WorkRecord b=records.save(new WorkRecord("RES-260808-012","TOPIC-SME-AI","中小企业 AI 转型需求",second,18,18,0,LocalDate.now(),WorkRecord.Status.COMPLETED,"METHOD-V5")); WorkRecord c=records.save(new WorkRecord("RES-260808-021","TOPIC-OPC","工业 OPC 技术服务趋势",third,20,9,3,LocalDate.now().plusDays(3),WorkRecord.Status.RUNNING,"METHOD-V3"));

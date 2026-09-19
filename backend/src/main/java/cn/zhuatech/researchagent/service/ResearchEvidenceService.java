@@ -8,9 +8,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/** 研究证据评估：结论必须区分事实、推断和预测，并保留来源。 */
+/**
+ * 研究证据评估：结论必须区分事实、推断和预测，并保留来源。
+ *
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class ResearchEvidenceService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record EvidenceRequest(
             @NotBlank String topic,
             @Min(0) @Max(1000) int sourceCount,
@@ -18,12 +25,18 @@ public class ResearchEvidenceService {
             boolean containsPrediction,
             boolean publicationApproved) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record EvidenceDecision(
             boolean publishAllowed,
             String route,
             int confidence,
             List<String> controls) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public EvidenceDecision inspect(EvidenceRequest request) {
         int confidence = request.sourceCount() == 0 ? 0
                 : Math.min(100, 45 + request.primarySourceCount() * 55 / request.sourceCount());
