@@ -1,5 +1,7 @@
 # ResearchAgent — 知华科技企业研究情报智能体
 
+[简体中文](README.md) | [English](README.en.md)
+
 > Evidence first. 先验证来源，再形成观点。
 
 ResearchAgent 是[上海如静知华信息科技有限公司（知华科技）](https://www.zhuatech.cn/)发布的企业研究情报社区源码项目，适用于战略研究、市场情报、技术雷达和专题分析场景。
