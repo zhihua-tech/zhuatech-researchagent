@@ -1,0 +1,93 @@
+{
+  "slug": "researchagent",
+  "title": "研究来源独立性与一手证据比例",
+  "fields": [
+    {
+      "key": "id",
+      "label": "记录编号",
+      "type": "ID"
+    },
+    {
+      "key": "sources",
+      "label": "引用来源数",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "1",
+      "max": "1000000"
+    },
+    {
+      "key": "families",
+      "label": "独立来源族数",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "1000000"
+    },
+    {
+      "key": "primary",
+      "label": "一手来源数",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "1000000"
+    },
+    {
+      "key": "deadLinks",
+      "label": "失效来源链接数",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "1000000"
+    },
+    {
+      "key": "minimumFamilies",
+      "label": "最低独立来源族",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "1",
+      "max": "1000000"
+    },
+    {
+      "key": "primaryFloor",
+      "label": "一手证据最低比例%",
+      "type": "NUMBER",
+      "scale": 4,
+      "min": "0",
+      "max": "100"
+    }
+  ],
+  "columns": [
+    {
+      "key": "primaryPct",
+      "label": "一手来源%"
+    },
+    {
+      "key": "sourcesPerFamily",
+      "label": "每来源族引用数"
+    },
+    {
+      "key": "liveLinks",
+      "label": "有效链接数"
+    }
+  ],
+  "description": "核对独立来源族、一手来源、失效链接及最低独立证据数量，防止把转载数量当作独立佐证。只处理调用方已归类的统计。",
+  "owner": "上海如静知华信息科技有限公司",
+  "website": "https://www.zhuatech.cn/",
+  "authorization": "商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。",
+  "version": 1,
+  "notes": "输入均须为已获授权的同口径数据。金额固定人民币元；比例为百分数。核算结果只用于复核，未审批、未写库、未发起外部调用，也未触发付款、签名、资料销毁或设备控制。建议不构成法律、安全、会计或碳核证结论。",
+  "sample": {
+    "asOf": "2026-10-23",
+    "records": [
+      {
+        "id": "ITEM-001",
+        "sources": "10",
+        "families": "4",
+        "primary": "6",
+        "deadLinks": "0",
+        "minimumFamilies": "3",
+        "primaryFloor": "50"
+      }
+    ]
+  }
+}

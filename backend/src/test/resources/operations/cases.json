@@ -1,0 +1,63 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "PASS",
+      "primaryPct": "#60"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "families": "2"
+    },
+    "expected": {
+      "decision": "HOLD"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "primary": "4"
+    },
+    "expected": {
+      "decision": "HOLD"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "deadLinks": "1"
+    },
+    "expected": {
+      "decision": "REVIEW"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "families": "0"
+    },
+    "expected": {
+      "decision": "HOLD",
+      "sourcesPerFamily": "N/A"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "primary": "11"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "primary": "5"
+    },
+    "expected": {
+      "decision": "PASS"
+    },
+    "error": false
+  }
+]
