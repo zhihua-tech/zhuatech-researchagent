@@ -1,0 +1,80 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "PASS",
+      "primaryPct": "#60"
+    },
+    "error": false,
+    "baseline": {
+      "decision": "PASS",
+      "primaryPct": "#60"
+    }
+  },
+  {
+    "patch": {
+      "families": "2"
+    },
+    "expected": {
+      "decision": "HOLD"
+    },
+    "error": false,
+    "baseline": {
+      "decision": "PASS",
+      "primaryPct": "#60"
+    }
+  },
+  {
+    "patch": {
+      "primary": "4"
+    },
+    "expected": {
+      "decision": "HOLD"
+    },
+    "error": false,
+    "baseline": {
+      "decision": "PASS",
+      "primaryPct": "#60"
+    }
+  },
+  {
+    "patch": {
+      "deadLinks": "1"
+    },
+    "expected": {
+      "decision": "REVIEW"
+    },
+    "error": false,
+    "baseline": {
+      "decision": "PASS",
+      "primaryPct": "#60"
+    }
+  },
+  {
+    "patch": {
+      "families": "0"
+    },
+    "expected": {
+      "decision": "HOLD",
+      "sourcesPerFamily": "N/A"
+    },
+    "error": false,
+    "baseline": {
+      "decision": "PASS",
+      "primaryPct": "#60"
+    }
+  },
+  {
+    "patch": {
+      "primary": "5"
+    },
+    "expected": {
+      "decision": "PASS"
+    },
+    "error": false,
+    "baseline": {
+      "decision": "PASS",
+      "primaryPct": "#60"
+    }
+  }
+]
